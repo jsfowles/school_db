@@ -1,7 +1,12 @@
-<h1> Create a new school</h1>
-<br>
+<%= form_for @school do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name%>
 
-<%= render(partial: 'form') %>
+  <%= f.label :year_built %>
+  <%= f.text_field :year_built %>
+
+  <%= f.submit %>
+<% end %>
 
 <!--
   <form action='/schools' method='POST'>

@@ -16,7 +16,7 @@ class SchoolsController < ApplicationController
     # PUT - update columns in a school
     @school = School.find(params[:id])
     if @school.update(school_params)
-      rediect_to school_path(@school)
+      redirect_to school_path(@school)
     else
       render :edit
     end
@@ -29,10 +29,10 @@ class SchoolsController < ApplicationController
 
   def create
     # POST - creating a new school record in the database
-    @school - School.new(school_params)
+    @school = School.new(school_params)
     if @school.save
       #successful save in our database
-      rediect_to schools_path
+      redirect_to schools_path
     else
       #something went wrong
       render :new
@@ -42,7 +42,7 @@ class SchoolsController < ApplicationController
   def destroy
     #delete a single school out of the database
     School.find(params[:id]).destroy
-    redirect_to school_path
+    redirect_to schools_path
   end
 
 private
